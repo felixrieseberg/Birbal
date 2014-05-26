@@ -21,7 +21,8 @@
     "underscore": "^1.6.0",
     "node-xmpp": "^1.0.0-alpha1",
     "rsvp": "^1.2.0",
-    "backbone-events-standalone": "^0.2.1"
+    "backbone-events-standalone": "^0.2.1",
+    "q-orm": "0.0.1"
   },
   "noAnalyze": true,
   "license": "Apache",
