@@ -29,7 +29,7 @@ var apiCalendar = function () {
             "Text: " + text + "\n" +
             "Notify: " + sendNotification);
 
-        googleCalendar.events.quickAdd(calendarId, text, sendNotification, function (error, data) {
+        googleCalendar.events.quickAdd(calendarId, "Lunch with Arjun at 2pm", sendNotification, function (error, data) {
             if (error) {
                 //self.emit('error', error);
                 console.log(error);
