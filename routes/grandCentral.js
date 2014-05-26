@@ -1,5 +1,6 @@
 var configAuth = require('../config/auth');
-var CalendarAPI = require('../app/apiCalendar');
+var CalendarAPI = require('../app/apiGoogleCalendar');
+require('events');
 
 module.exports = function (app, passport) {
 
@@ -182,15 +183,20 @@ module.exports = function (app, passport) {
 
     // WEB API =============================================================
 
-    // /create?cID='calendar'&text='text'&notify='true|false'
-    app.get('/webapi/calendar/create', isLoggedIn, function (req, res) {
+    // /quickAdd?cID='calendar'&text='text'&notify='true|false'
+    app.get('/webapi/calendar/quickAdd', isLoggedIn, function (req, res) {
         var accessToken = req.user.google.token;
         var calendarId = req.query.cID;
         var text = req.query.text;
-        var sendNotification = req.query.notify;
 
         var apiCalendar = new CalendarAPI();
-        apiCalendar.newCalendarEntry(accessToken, calendarId, text, sendNotification);
+        apiCalendar.newCalendarEntry(accessToken, calendarId, text, function (error, response) {
+            if (error) {
+                res.json(error);
+            } else {
+                res.json(response);
+            }
+        });
     });
 
 };
