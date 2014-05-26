@@ -1,15 +1,15 @@
 module.exports = {
 
     'facebookAuth' : {
-		'clientID' 		: 'your-secret-clientID-here', // your App ID
-		'clientSecret' 	: 'your-client-secret-here', // your App Secret
-		'callbackURL' 	: 'http://localhost:8080/auth/facebook/callback'
+		'clientID' 		: '649859611754769', // your App ID
+		'clientSecret' 	: 'b173513fd71455e45e765693ac9a59ef', // your App Secret
+		'callbackURL' 	: 'http://localhost:3000/auth/facebook/callback'
 	},
 
 	'twitterAuth' : {
-		'consumerKey' 		: 'your-consumer-key-here',
-		'consumerSecret' 	: 'your-client-secret-here',
-		'callbackURL' 		: 'http://localhost:8080/auth/twitter/callback'
+		'consumerKey' 		: 'XbiRyiNfe3fowlkmGE43w9uk0',
+		'consumerSecret' 	: 'iHj5jeTSZeO9rJXDJBynmLp4ZqbceNQdxB1Vv3E0qeJH5pkwHx',
+		'callbackURL' 		: 'http://localhost:3000/auth/twitter/callback'
 	},
 
 	'googleAuth' : {
