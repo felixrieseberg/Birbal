@@ -1,9 +1,23 @@
+Topics = require('./topics')
+
 class Conversation
-  constructor: (@user, @client)->
+  constructor: (attrs)->
+    @user = attrs.user
+    @client = attrs.client
     @topic = null
-    @contexts = []
+    @contexts = {}
 
   receive: (message)->
     @topic ?= @initTopic(message)
     response = @topic.receive(message)
-    @client.send(respones)
+    @client.send(response)
+
+  initTopic: (message)->
+    return @topic if @topic?.canUnderstand(message)
+    topicClass = Topics.find (topicClass)->
+      topicClass.canUnderstand(message)
+
+    new topicClass
+      user: @user
+      contexts: @contexts
+
