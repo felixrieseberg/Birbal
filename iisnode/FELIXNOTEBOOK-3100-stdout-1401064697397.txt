@@ -1,3 +1,0 @@
-Express server listening on port \\.\pipe\1e63206f-8b47-4ecc-a4f0-36e9f9d2cd90
-[90mGET / [32m200 [90m40ms - 170[0m
-[90mGET /birbar/createEvent [32m200 [90m2ms - 3[0m
