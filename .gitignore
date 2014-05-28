@@ -33,3 +33,11 @@ iisnode
 
 /config/database.js
 /config/auth.js
+
+# More WebMatrix crap
+*.swp
+*~
+
+Robots.txt
+
+web.config
