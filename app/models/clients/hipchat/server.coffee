@@ -54,8 +54,6 @@ class HipchatClient
   clientId: "116277_859534@chat.hipchat.com"
   clientPassword: "botbotbot"
 
-
-
 BackboneEvents.mixin(HipchatClient::)
 module.exports = HipchatClient
 

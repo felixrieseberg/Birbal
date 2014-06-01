@@ -5,6 +5,16 @@ var autoIncrement = require('mongoose-auto-increment');
 var connection = mongoose.connections[0];
 autoIncrement.initialize(connection);
 
+var clientSchema = mongoose.Schema({
+    name            : String,
+    user            : String,
+    password        : String
+});
+
+var screennameSchema = mongoose.Schema({
+    name            : String
+});
+
 // define the schema for our user model
 var userSchema = mongoose.Schema({
 
@@ -30,6 +40,8 @@ var userSchema = mongoose.Schema({
         email        : String,
         name         : String
     },
+    clients          : [{ type: Schema.Types.ObjectId, ref: 'Client' }],
+    screennames      : [{ type: Schema.Types.ObjectId, ref: 'Screenname' }],
     userID           : Number
 
 });
@@ -47,4 +59,6 @@ userSchema.methods.validPassword = function(password) {
 
 // create the model for users and expose it to our app
 userSchema.plugin(autoIncrement.plugin, { model: 'User', field: 'userID' });
+module.exports = mongoose.model('Client', clientSchema);
+module.exports = mongoose.model('Screenname', screennameSchema);
 module.exports = mongoose.model('User', userSchema);
