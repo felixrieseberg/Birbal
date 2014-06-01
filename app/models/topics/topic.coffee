@@ -1,24 +1,37 @@
+_ = require 'underscore'
+
 class Topic
   @parsers: [
   ]
 
   @canUnderstand: (message)->
-    @parsers.any (p)-> p.regex.match message
+    _(@parsers).any (p)-> p.regex.exec message
 
-  parsers: 
+  canUnderstand: (message)->
+    @constructor.canUnderstand(message)
+
+  constructor: (attrs)->
+    @user = attrs.user
+    @contexts = attrs.contexts
+    @conversation = attrs.conversation
+
+  parsers: ->
     @constructor.parsers
 
   receive: (message)->
-    parser = @parsers.find (p) p.regex.match message
-    return unless parser
+    parser = _(@parsers()).find (p)->
+      p.regex.exec message
 
     parser.contexts.map (c)->
       context = c.extract message
-      @contexts[c.name] = context
+      @contexts[c.name] = context if context
 
-    action = parser.action
-    @[action](@contexts) if action
-     
+    @perform()
+    @response()
+
+module.exports = Topic
+    
+   
 
   
   

@@ -1,11 +1,13 @@
 // set up ======================================================================
 // get all the tools we need
+require('coffee-script/register');
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash 	 = require('connect-flash');
+var Client   = require('./app/models/clients/hipchat/server.coffee');
 
 var configDB = require('./config/database.js');
 
@@ -34,4 +36,8 @@ require('./routes/grandCentral.js')(app, passport); // load our routes and pass 
 
 // launch ======================================================================
 app.listen(port);
+// Should be Client.all.launch
+(new Client)
+
+
 console.log('Birbal is barely working on port ' + port);

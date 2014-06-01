@@ -1,6 +1,6 @@
 var googleCalendar = require('../apiGoogleCalendar.js');
-var q = require(q);
-var errors = require('generics').errors;
+var q = require('q');
+var errors = require('./generics').errors;
 
 var calendar = function () {
 

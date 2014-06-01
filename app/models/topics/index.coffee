@@ -1,4 +1,4 @@
-CalendarTopic = require('./calendar_topic')
-Topics = [CalendarTopic]
+CalendarEventTopic = require('./calendar_event_topic')
+Topics = [CalendarEventTopic]
 
 module.exports = Topics

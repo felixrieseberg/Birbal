@@ -22,7 +22,11 @@
     "node-xmpp": "^1.0.0-alpha1",
     "rsvp": "^1.2.0",
     "backbone-events-standalone": "^0.2.1",
-    "q-orm": "0.0.1"
+    "q": "^2.0.1",
+    "q-orm": "0.0.1",
+    "coffee-script": "^1.7.1",
+    "mongoose-auto-increment": "^3.0.2",
+    "jquery-deferred": "^0.3.0"
   },
   "noAnalyze": true,
   "license": "Apache",
