@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 var autoIncrement = require('mongoose-auto-increment');
+var Schema = mongoose.Schema;
 
 var connection = mongoose.connections[0];
 autoIncrement.initialize(connection);
